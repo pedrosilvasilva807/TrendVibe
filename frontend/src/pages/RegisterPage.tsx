@@ -2,7 +2,6 @@ import { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { TrendingUp, Eye, EyeOff } from 'lucide-react'
 import { supabase, getCurrentSession } from '@/lib/supabase'
-import { authApi } from '@/lib/api'
 import { useAuthStore } from '@/stores/useAuthStore'
 import { useToast } from '@/components/ui/Toast'
 import { generateKeyPair, exportPublicKey } from '@/lib/crypto'
@@ -10,7 +9,7 @@ import { chatApi } from '@/lib/api'
 
 export function RegisterPage(): JSX.Element {
   const navigate = useNavigate()
-  const { setUser, setProfile } = useAuthStore()
+  const { setUser } = useAuthStore()
   const { addToast } = useToast()
   const [email, setEmail] = useState('')
   const [displayName, setDisplayName] = useState('')
